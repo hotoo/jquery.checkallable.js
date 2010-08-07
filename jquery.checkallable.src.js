@@ -17,7 +17,6 @@
                 checkAll(defaults.name, this.checked);
             });
             $("input[type=checkbox][name="+defaults.name+"]").live("click", function(evt){
-                // TODO: quick check by shift key.
                 if(this==ME){return;}
                 if(evt.shiftKey && lastCheck!=null && lastCheck!=this){
                     var cs = $("input[type=checkbox][name="+name+"]"),
