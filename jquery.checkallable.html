@@ -9,6 +9,11 @@
 <link rel="icon" href="favicon.ico" type="image/x-icon" />
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 <title>jQuery.checkallable</title>
+<style type="text/css" media="screen">
+    table{border-collapse:collapse;}
+    th{background:#eee none;}
+    th,td{border:1px solid #ccc; padding:2px 5px;}
+</style>
 </head>
 <body>
 
@@ -16,6 +21,14 @@
     <thead>
         <tr>
             <th><input type="checkbox" name="ck" id="ck" value="" /></th>
+            <th>
+                <input type="radio" name="rd" id="rd-0" value="0" />
+                    <label for="rd-0">Yes</label>
+                <input type="radio" name="rd" id="rd-1" value="1" />
+                    <label for="rd-1">No</label>
+                <input type="radio" name="rd" id="rd-2" value="2" />
+                    <label for="rd-2">Others</label>
+            </th>
             <th>Header2</th>
             <th>Header3</th>
         </tr>
@@ -23,26 +36,66 @@
     <tbody>
         <tr>
             <td><input type="checkbox" name="ck" value="" /></td>
+            <td>
+                <input type="radio" name="rd-0" id="rd-0-0" value="0" />
+                    <label for="rd-0-0">Yes</label>
+                <input type="radio" name="rd-0" id="rd-0-1" value="1" />
+                    <label for="rd-0-1">No</label>
+                <input type="radio" name="rd-0" id="rd-0-2" value="2" />
+                    <label for="rd-0-2">Others</label>
+            </td>
             <td>Data2</td>
             <td>Data3</td>
         </tr>
         <tr>
             <td><input type="checkbox" name="ck" value="" /></td>
+            <td>
+                <input type="radio" name="rd-1" id="rd-1-0" value="0" />
+                    <label for="rd-1-0">Yes</label>
+                <input type="radio" name="rd-1" id="rd-1-1" value="1" />
+                    <label for="rd-1-1">No</label>
+                <input type="radio" name="rd-1" id="rd-1-2" value="2" />
+                    <label for="rd-1-2">Others</label>
+            </td>
             <td>Data2</td>
             <td>Data3</td>
         </tr>
         <tr>
             <td><input type="checkbox" name="ck" value="" /></td>
+            <td>
+                <input type="radio" name="rd-2" id="rd-2-0" value="0" />
+                    <label for="rd-2-0">Yes</label>
+                <input type="radio" name="rd-2" id="rd-2-1" value="1" />
+                    <label for="rd-2-1">No</label>
+                <input type="radio" name="rd-2" id="rd-2-2" value="2" />
+                    <label for="rd-2-2">Others</label>
+            </td>
             <td>Data2</td>
             <td>Data3</td>
         </tr>
         <tr>
             <td><input type="checkbox" name="ck" value="" /></td>
+            <td>
+                <input type="radio" name="rd-3" id="rd-3-0" value="0" />
+                    <label for="rd-3-0">Yes</label>
+                <input type="radio" name="rd-3" id="rd-3-1" value="1" />
+                    <label for="rd-3-1">No</label>
+                <input type="radio" name="rd-3" id="rd-3-2" value="2" />
+                    <label for="rd-3-2">Others</label>
+            </td>
             <td>Data2</td>
             <td>Data3</td>
         </tr>
         <tr>
             <td><input type="checkbox" name="ck" value="" /></td>
+            <td>
+                <input type="radio" name="rd-4" id="rd-4-0" value="0" />
+                    <label for="rd-4-0">Yes</label>
+                <input type="radio" name="rd-4" id="rd-4-1" value="1" />
+                    <label for="rd-4-1">No</label>
+                <input type="radio" name="rd-4" id="rd-4-2" value="2" />
+                    <label for="rd-4-2">Others</label>
+            </td>
             <td>Data2</td>
             <td>Data3</td>
         </tr>
@@ -54,7 +107,21 @@
     <script type="text/javascript">/*<![CDATA[*/
         $(function(){
             $("#ck").checkallable();
+            $("#rd-0,#rd-1,#rd-2").checkallable();
+
+            return;
+            $("#chk-all").checkallable({
+                validate: function(){
+                    return $(this).parent().parent().css("display")!="none";
+                },
+                callback: function(checked){
+                var o = $(this).parent().parent()
+                    if(checked){o.addClass("checked");}
+                    else{o.removeClass("checked");}
+                }
+            });
         });
+
     /*]]>*/</script>
 </body>
 </html>
